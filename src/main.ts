@@ -1,20 +1,15 @@
-import express, {
-    Request,
-    Response,
-    json
-} from 'express';
+import express from 'express'
+import routes from './routes'
+import dotenv from 'dotenv'
 
-const port = 3030;
+dotenv.config({path: __dirname + "/.env"})
 
-const app = express();
-app.use(json());
+const port = 3030
 
-app.get('/', (req: Request, res: Response) => {
-    res.status(200).send({
-        name: "Chat",
-        version: "Alpha 0.1"
-    });
-});
+const app = express()
+app.use(express.json())
+
+app.use('/',routes)
 
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`)
