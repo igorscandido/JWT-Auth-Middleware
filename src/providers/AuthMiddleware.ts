@@ -16,7 +16,7 @@ const isLogged = (req: Request, res: Response, next: NextFunction) => {
     jwt.verify(jwtToken!,env.SECRET_KEY!,(err, data) => {
         if (err) return res.status(422).send({message: "Non processable"})
 
-        req.body.credencials = data
+        req.body.credentials = data
     })
 
     next()

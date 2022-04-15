@@ -9,8 +9,4 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3030/jobs/list
-Authorization:Bearer 
-
-{
-
-}
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDcmVkZW50aWFscyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiJ9LCJpYXQiOjE2NTAwNDYzMDB9.i9qK8caUJoyEE5A45A1lVP5y3RVtN1xgYqNCbjJjVac

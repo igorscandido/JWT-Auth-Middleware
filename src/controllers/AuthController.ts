@@ -2,33 +2,33 @@ import { Router, Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
 import { env } from 'process'
 
-interface Credencials {
+interface Credentials {
     username: string,
     password: string
 }
 
 const router = Router()
 
-const defaultCredencials: Credencials = {
+const defaultCredentials: Credentials = {
     username: "admin",
     password: "admin"
 }
 
 router.post('/login', (req: Request, res: Response) => {
 
-    const usrCredencials: Credencials = {
+    const usrCredentials: Credentials = {
         username: req.body.username,
         password: req.body.password
     }
 
-    if(defaultCredencials.username != usrCredencials.username ||
-        defaultCredencials.password != usrCredencials.password)
+    if(defaultCredentials.username != usrCredentials.username ||
+        defaultCredentials.password != usrCredentials.password)
         return res.status(401).send({
             message: "Unauthorized"
         })
 
     const token = jwt.sign({
-        credencials: usrCredencials
+        Credentials: usrCredentials
     },env.SECRET_KEY!)
 
     res.status(200).send({
